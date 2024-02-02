@@ -56,3 +56,57 @@ h6 {
     --primary-color: #596D48;
     --white-100: #E5E7EB;
 }
+
+body {
+    display: flex;
+}
+
+.logo-section {
+    flex: 1 1 0px;
+    background: url(assets/images/halie-west-25xggax4bSA-unsplash.jpg) no-repeat left center / cover;
+    color: var(--white-100);
+    position: relative;
+    max-width: 1200px;
+}
+
+.logo {
+    background-color: rgb(0 0 0 / 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    margin-top: 200px;
+}
+
+.logo img {
+    display: block;
+    width: 100px;
+}
+
+.logo h1 {
+    font-family: var(--main-font);
+    font-size: 7rem;
+    line-height: 0;
+}
+
+.logo-section footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+}
+
+.logo-section p {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.logo-section footer a {
+    color: inherit;
+}
+
+.form-section {
+    flex-basis: 1200px;
+}
