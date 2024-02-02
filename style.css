@@ -43,3 +43,16 @@ h5,
 h6 {
     overflow-wrap: break-word;
 }
+
+/* Styles */
+
+@font-face {
+    font-family: 'norse-bold';
+    src: url(assets/fonts/Norse-Bold.otf);
+}
+
+:root {
+    --main-font: 'norse-bold';
+    --primary-color: #596D48;
+    --white-100: #E5E7EB;
+}
