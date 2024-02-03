@@ -230,13 +230,11 @@ body {
     outline-offset: -1px;
 }
 
-.form-control input:invalid:not(:focus),
 .form-control input.invalid:not(:focus) {
     border-color: var(--color-error);
 }
 
 .form-control input:focus,
-.form-control input:invalid,
 .form-control input.invalid {
     box-shadow: var(--shadow-elevation-medium);
 }
@@ -244,6 +242,11 @@ body {
 .form-control .validation-error {
     font-size: 0.9rem;
     color: var(--color-error);
+    display: none;
+}
+
+.form-control input.invalid + .validation-error {
+    display: revert;
 }
 
 .form-separator {
