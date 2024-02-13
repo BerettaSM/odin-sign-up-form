@@ -3,31 +3,31 @@ const form = document.getElementById('form');
 const inputs = [
     {
         element: document.getElementById('first-name'),
-        validations: [isLength({ min: 3, max: 50 })],
+        validations: [validateLength({ min: 3, max: 50 })],
     },
     {
         element: document.getElementById('last-name'),
-        validations: [isLength({ min: 3, max: 50 })],
+        validations: [validateLength({ min: 3, max: 50 })],
     },
     {
         element: document.getElementById('email'),
-        validations: [isEmail],
+        validations: [validateEmail],
     },
     {
         element: document.getElementById('phone'),
-        validations: [isPhone],
+        validations: [validatePhone],
     },
     {
         element: document.getElementById('password'),
         validations: [
-            isLength({ min: 8 }),
+            validateLength({ min: 8 }),
         ],
     },
     {
         element: document.getElementById('confirm-password'),
         validations: [
-            isLength({ min: 8 }),
-            isPasswordMatch({
+            validateLength({ min: 8 }),
+            validatePasswordMirror({
                 mirrorElement: document.getElementById('password'),
             }),
         ],
@@ -75,7 +75,7 @@ function clearErrorMessage(element) {
     span.textContent = '';
 }
 
-function isLength({ min, max }) {
+function validateLength({ min, max }) {
     return function validateLength(value) {
         const len = value.trim().length;
 
@@ -99,7 +99,7 @@ function isLength({ min, max }) {
     };
 }
 
-function isEmail(value) {
+function validateEmail(value) {
     const regex = /^\S+@\S+\.\S+$/;
     if (!regex.test(value)) {
         throw new Error(`Should be a valid email. e.g.: johhdoe@email.com.`);
@@ -107,14 +107,14 @@ function isEmail(value) {
 }
 
 // See: https://stackoverflow.com/questions/4338267/validate-phone-number-with-javascript
-function isPhone(value) {
+function validatePhone(value) {
     const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     if (!regex.test(value)) {
         throw new Error(`Should be a valid phone. e.g.: (123) 456-7890.`);
     }
 }
 
-function isPasswordMatch({ mirrorElement }) {
+function validatePasswordMirror({ mirrorElement }) {
     return function validatePasswordMatch(value) {
         if (
             mirrorElement.value.length !== value.length ||
