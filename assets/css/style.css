@@ -249,6 +249,11 @@ body {
     display: revert;
 }
 
+.form-control input::placeholder {
+    font-size: 1rem;
+    opacity: 0.5;
+}
+
 .form-separator {
     border: 12px solid rgb(0 0 0 / 0);
     box-shadow: var(--shadow-elevation-high);
